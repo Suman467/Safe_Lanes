@@ -44,9 +44,16 @@ public class LoginPage {
 	@FindBy(xpath="//span[@class='mat-slide-toggle-content']")
 	WebElement rememberMe ;
 	
+	@FindBy(xpath="//button[@class='mat-focus-indicator mat-button mat-button-base menu-button active']")
+	WebElement dashboard;
+	
 	
 
 	
+	public WebElement getDashboard() {
+		return dashboard;
+	}
+
 	public WebElement getLogo() {
 		return logo;
 	}

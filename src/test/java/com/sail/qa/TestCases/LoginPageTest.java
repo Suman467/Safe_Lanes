@@ -48,8 +48,11 @@ public class LoginPageTest extends TestBase {
 	    System.out.println("Domain name is entered");
 	    clickElement(login.getSubmitBtn());
 	    log.info("Login button is clicked");	    
-	    System.out.println("Login button is clicked");
-	    Thread.sleep(2000);
+	    System.out.println("Login button is clicked");	
+	    getFluentWait();
+	    Assert.assertTrue(login.getDashboard().isDisplayed());
+	    System.out.println("Dashoard tab is visible");
+	   
 	}
 
 }
