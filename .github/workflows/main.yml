@@ -21,21 +21,6 @@ jobs:
 
     - name: Build with Maven
       run: mvn clean install -DskipTests=true
-      continue-on-error: true  # Continue to the next step even if Maven build fails
 
     - name: Run SignIn Suite
-      run: mvn test -Dsurefire.suiteXmlFiles=Safe_Lanes/testSuites/01-sign-in-successfull.xml
-      continue-on-error: true  # Continue to the next step even if tests fail
-
-    # Additional steps can be added based on your requirements:
-    # - name: Deploy Artifacts
-    #   run: mvn deploy
-
-    # - name: Notify on Slack or other messaging platform
-    #   run: send-notification-script.sh
-
-    - name: Build with Maven
-      run: mvn clean install -DskipTests=true
-
-    - name: Run SignIn Suite
-      run: mvn test -Dsurefire.suiteXmlFiles=Safe_Lanes/testSuites/01-sign-in-successfull.xml
+      run: mvn test -Dsurefire.suiteXmlFiles=${GITHUB_WORKSPACE}/testSuites/01-sign-in-successfull.xml
