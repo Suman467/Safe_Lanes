@@ -11,7 +11,7 @@
 
 		<!--Sign-in Inputs -->
  
-		<!-- parameter name="execution" value="headless" /> -->
+		<!--  <parameter name="execution" value="headless" />   -->
 		<parameter name="browser" value="chrome" />
 		<parameter name="URL" value="https://uat.sl-sail.com/" />
 		<parameter name="Email" value="support@sl-sail.com" />
@@ -19,7 +19,7 @@
 		<parameter name="Domain" value="SAIL Demo2" />
 
 		<classes>
-			<class name="com.sail.qa.TestCases.LoginPageTest">
+			<class name="com.sail.LoadTesting.performanceLoadTesting">
 				<methods>
 					<include name="AdminLogin" />
 				</methods>
