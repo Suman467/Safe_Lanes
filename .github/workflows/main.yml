@@ -1,0 +1,35 @@
+name: Run Sign-In Suite
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          distribution: "adopt"
+          java-version: "11"
+
+      - name: Download Test Suite
+        run: |
+          curl -O https://raw.githubusercontent.com/Suman467/Safe_Lanes/master/testSuites/01-sign-in-successfull.xml
+
+      - name: Run TestNG Suite
+        run: |
+          ./mvnw test -DsuiteXmlFile=01-sign-in-successfull.xml
+          # Adjust the command based on your project's build tool
+
+      - name: Debug Information
+        run: |
+          echo "Current Directory: $(pwd)"
+          ls -la
+          # Add more debugging commands as needed
