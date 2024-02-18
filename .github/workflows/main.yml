@@ -3,7 +3,7 @@ name: Run Sign-In Suite
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   test:
