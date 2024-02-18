@@ -3,7 +3,7 @@ name: Run Sign-In Suite
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   test:
@@ -18,10 +18,6 @@ jobs:
         with:
           distribution: "adopt"
           java-version: "11"
-
-      - name: Download Test Suite
-        run: |
-          curl -O https://raw.githubusercontent.com/Suman467/Safe_Lanes/master/testSuites/01-sign-in-successfull.xml
 
       - name: Run TestNG Suite
         run: |
