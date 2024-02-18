@@ -27,3 +27,9 @@ jobs:
         run: |
           ./mvnw test -DsuiteXmlFile=01-sign-in-successfull.xml
           # Adjust the command based on your project's build tool
+
+      - name: Debug Information
+        run: |
+          echo "Current Directory: $(pwd)"
+          ls -la
+          # Add more debugging commands as needed
