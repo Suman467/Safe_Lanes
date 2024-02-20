@@ -19,13 +19,19 @@ jobs:
           distribution: "adopt"
           java-version: "11"
 
-      - name: Run TestNG Suite
+      - name: Set execute permissions for mvnw
         run: |
-          ./mvnw test -DsuiteXmlFile=01-sign-in-successfull.xml
+          chmod +x mvnw
+        working-directory: .  # Set to the root directory
+
+      - name: Run TestNG Suite
+        working-directory: .  # Set to the root directory
+        run: |
+          ./mvnw test -DsuiteXmlFile=testSuites/01-sign-in-successfull.xml
           # Adjust the command based on your project's build tool
 
       - name: Debug Information
         run: |
           echo "Current Directory: $(pwd)"
           ls -la
-          # Add more debugging commands as needed.
+          # Add more debugging commands as needed

@@ -22,9 +22,9 @@ public class InspectionReportWithFilters extends TestBase {
 	ExternalInspectionReports externalInsp = new ExternalInspectionReports();
 	
 		
-	    
+	@Parameters({"currentYear"})
 		@Test
-		public void GenerateSireReportWithVesselFilter() throws InterruptedException, AWTException {
+		public void GenerateSireReportWithVesselFilter(int currentYear ) throws InterruptedException, AWTException {
 			
 			ReportPage report = new ReportPage(driver);
 			GeneratedReport genRep = new GeneratedReport(driver);
@@ -70,7 +70,7 @@ public class InspectionReportWithFilters extends TestBase {
 			
 			System.out.println(getText(genRep.getFilterApplied()));
 			
-			externalInsp.GeneratedExternalInspectionReport();
+			externalInsp.GeneratedExternalInspectionReport(currentYear);
 			
 			closeTAb.closeTab();	
 			switchTab.switchToOldTab();			
@@ -78,9 +78,9 @@ public class InspectionReportWithFilters extends TestBase {
 		}
 		
 		
-		
+	    @Parameters({"currentYear"})
 		@Test
-		public void GenerateSireReportWithOwnerFilter() throws InterruptedException, AWTException {
+		public void GenerateSireReportWithOwnerFilter(int currentYear ) throws InterruptedException, AWTException {
 			
 			ReportPage report = new ReportPage(driver);
 			GeneratedReport genRep = new GeneratedReport(driver);
@@ -125,7 +125,7 @@ public class InspectionReportWithFilters extends TestBase {
 			switchTab.switchToNewTab();
 			
 			System.out.println(getText(genRep.getFilterApplied()));
-			externalInsp.GeneratedExternalInspectionReport();			
+			externalInsp.GeneratedExternalInspectionReport(currentYear);			
 			closeTAb.closeTab();	
 			switchTab.switchToOldTab();			
 
@@ -133,9 +133,9 @@ public class InspectionReportWithFilters extends TestBase {
 		
 		
 		
-		@Parameters({"Year"})
+		@Parameters({"Year", "currentYear"})
 		@Test
-		public void GenerateSireReportWithVIQChapterFilter(String year) throws InterruptedException, AWTException {
+		public void GenerateSireReportWithVIQChapterFilter(String year , int currentYear) throws InterruptedException, AWTException {
 			
 			ReportPage report = new ReportPage(driver);
 			GeneratedReport genRep = new GeneratedReport(driver);
@@ -186,7 +186,7 @@ public class InspectionReportWithFilters extends TestBase {
 			switchTab.switchToNewTab();
 			
 			System.out.println(getText(genRep.getFilterApplied()));
-			externalInsp.GeneratedExternalInspectionReport();
+			externalInsp.GeneratedExternalInspectionReport(currentYear);
 			
 			closeTAb.closeTab();	
 			switchTab.switchToOldTab();			
@@ -195,9 +195,9 @@ public class InspectionReportWithFilters extends TestBase {
 		
 		
 		
-		@Parameters({"Location"})
+		@Parameters({"Location","currentYear"})
 		@Test
-		public void GenerateSireReportWithLocationFilter(String location) throws InterruptedException, AWTException {
+		public void GenerateSireReportWithLocationFilter(String location, int currentYear) throws InterruptedException, AWTException {
 			
 			ReportPage report = new ReportPage(driver);
 			GeneratedReport genRep = new GeneratedReport(driver);
@@ -235,7 +235,7 @@ public class InspectionReportWithFilters extends TestBase {
 			switchTab.switchToNewTab();
 			
 			System.out.println(getText(genRep.getFilterApplied()));
-			externalInsp.GeneratedExternalInspectionReport();
+			externalInsp.GeneratedExternalInspectionReport(currentYear);
 			
 			closeTAb.closeTab();	
 			switchTab.switchToOldTab();			
@@ -244,9 +244,9 @@ public class InspectionReportWithFilters extends TestBase {
 		
 		
 		
-		
+		@Parameters({"currentYear"})
 		@Test
-		public void GeneratePscReportWithPscActionFilter() throws InterruptedException, AWTException {
+		public void GeneratePscReportWithPscActionFilter(int currentYear) throws InterruptedException, AWTException {
 			
 			ReportPage report = new ReportPage(driver);
 			
@@ -291,7 +291,7 @@ public class InspectionReportWithFilters extends TestBase {
 			switchTab.switchToNewTab();
 			
 			System.out.println(getText(genRep.getFilterApplied()));
-			externalInsp.GeneratedExternalInspectionReport();
+			externalInsp.GeneratedExternalInspectionReport(currentYear);
 			
 			closeTAb.closeTab();	
 			switchTab.switchToOldTab();			
@@ -300,9 +300,9 @@ public class InspectionReportWithFilters extends TestBase {
 		
 		
 		
-		@Parameters({"Location"})
+		@Parameters({"Location","currentYear"})
 		@Test
-		public void GenerateSupdtInspectionReportWithLocationFilter(String location ) throws InterruptedException, AWTException {
+		public void GenerateSupdtInspectionReportWithLocationFilter(String location , int currentYear) throws InterruptedException, AWTException {
 			
 			ReportPage report = new ReportPage(driver);
 			ExternalInspectionReports extInspReport= new ExternalInspectionReports();
@@ -352,7 +352,7 @@ public class InspectionReportWithFilters extends TestBase {
 			switchTab.switchToNewTab();
 			
 			System.out.println(getText(genRep.getFilterApplied()));
-			extInspReport.GeneratedExternalInspectionReport();
+			extInspReport.GeneratedExternalInspectionReport(currentYear);
 			
 			closeTAb.closeTab();	
 			switchTab.switchToOldTab();			

@@ -245,7 +245,7 @@ public class ExternalInspectionReports extends TestBase {
 			
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", genRep.getInspPerformanceTop20RepeatedObs());
-			System.out.println("CDI INSPECTION Performance - Top 20 Repeated Observation list is visible on report");
+			System.out.println("PSC INSPECTION Performance - Top 20 Repeated Observation list is visible on report");
 			getFluentWait();
 
 			js = (JavascriptExecutor) driver;
