@@ -28,6 +28,11 @@ jobs:
           ./mvnw verify -Dgroups="*" -Dsuite.file=testSuites/01-sign-in-successfull.xml
         env:
           MAVEN_OPTS: '-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn'
+     
+      - name: Display Log Content
+        run: cat output.log
+        if: always()
+          
 
       - name: Debug Information
         run: |
