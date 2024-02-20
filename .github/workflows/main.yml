@@ -22,11 +22,10 @@ jobs:
           chmod +x mvnw
         working-directory: .  # Set to the root directory
 
-      - name: Run TestNG Suite
+      - name: Run Specific TestNG Suite
         working-directory: .  # Set to the root directory
         run: |
-          ./mvnw test -DsuiteXmlFile=testSuites/01-sign-in-successfull.xml
-          # Adjust the command based on your project's build tool
+         ./mvnw verify -Dgroups="*" -Dsuite.file=testSuites/01-sign-in-successfull.xml
 
       - name: Debug Information
         run: |
