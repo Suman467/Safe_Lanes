@@ -23,7 +23,7 @@ jobs:
         working-directory: .  # Set to the root directory
 
       - name: Print Executing Suite
-        run: echo "Executing TestNG Suite:'01-sign-in-successfull.xml'
+        run: echo "Executing TestNG Suite:01-sign-in-successfull.xml "
 
       - name: Run Specific TestNG Suite
         working-directory: .  # Set to the root directory
