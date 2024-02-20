@@ -26,7 +26,13 @@ jobs:
           chmod +x mvnw
         working-directory: .  # Set to the root directory
 
-      - name: Run TestNG Suite
+      - name: Run TestNG Suite 1
+        working-directory: .  # Set to the root directory
+        run: |
+          ./mvnw test -DsuiteXmlFile=testSuites/01-sign-in-successfull.xml -B
+          # Adjust the command based on your project's build tool
+
+      - name: Run TestNG Suite 2
         working-directory: .  # Set to the root directory
         run: |
           ./mvnw test -DsuiteXmlFile=testSuites/04-Internal_Reoprts.xml -B
@@ -36,4 +42,4 @@ jobs:
         run: |
           echo "Current Directory: $(pwd)"
           ls -la
-          # Add more debugging commands as needed.
+          # Add more debugging commands as needed
