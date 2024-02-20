@@ -25,7 +25,7 @@ jobs:
       - name: Run TestNG Suite
         working-directory: .  # Set to the root directory
         run: |
-          ./mvnw test -DsuiteXmlFile=testSuites/04-Internal_Reoprts.xml
+          ./mvnw test -DsuiteXmlFile=testSuites/04-Internal_Reoprts.xml -suitename "Admin Sign-in Successfull And Generate Supdt. Inspection And Navigation Audit Report" -verbose
     # Adjust the command based on your project's build tool
 
       - name: Debug Information
