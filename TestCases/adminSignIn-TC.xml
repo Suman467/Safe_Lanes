@@ -12,7 +12,7 @@
 		<!--Sign-in Inputs -->
  
 
-	    <parameter name="execution" value="headless" />   
+	    <parameter name="execution" value="headless" />  
 		<parameter name="browser" value="chrome" />
 		<parameter name="URL" value="https://uat.sl-sail.com/" />
 		<parameter name="Email" value="Suman.Rana" />

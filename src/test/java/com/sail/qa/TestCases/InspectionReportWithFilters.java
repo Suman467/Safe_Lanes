@@ -49,6 +49,7 @@ public class InspectionReportWithFilters extends TestBase {
 			getFluentWait();
 			clickElement(filter.selectFilters(vessel_index));
 			System.out.println("Vessel has been selected");
+			log.info("Vessel has been selected");
 			}
 			
 						
@@ -56,9 +57,8 @@ public class InspectionReportWithFilters extends TestBase {
 	        // Press the Escape key
 	        actions.sendKeys(Keys.ESCAPE).build().perform();	
 			System.out.println("Vessel filter drop down is closed");
-			
-			
-			
+			log.info("Vessel filter drop down is closed");
+						
 			Thread.sleep(2000);
 			
 			clickElement(report.getGenerateBtn());
@@ -69,6 +69,7 @@ public class InspectionReportWithFilters extends TestBase {
 			switchTab.switchToNewTab();
 			
 			System.out.println(getText(genRep.getFilterApplied()));
+			log.info(getText(genRep.getFilterApplied()));
 			
 			externalInsp.GeneratedExternalInspectionReport(currentYear);
 			
@@ -105,6 +106,7 @@ public class InspectionReportWithFilters extends TestBase {
 			getFluentWait();
 			clickElement(filter.selectFilters(owner_index));
 			System.out.println("Owner has been selected");
+			log.info("Owner has been selected");
 			}
 			
 						
@@ -112,8 +114,7 @@ public class InspectionReportWithFilters extends TestBase {
 	        // Press the Escape key
 	        actions.sendKeys(Keys.ESCAPE).build().perform();	
 			System.out.println("Owner filter drop down is closed");
-			
-			
+			log.info("Owner filter drop down is closed");	
 			
 			Thread.sleep(2000);
 			
@@ -125,6 +126,7 @@ public class InspectionReportWithFilters extends TestBase {
 			switchTab.switchToNewTab();
 			
 			System.out.println(getText(genRep.getFilterApplied()));
+			log.info(getText(genRep.getFilterApplied()));
 			externalInsp.GeneratedExternalInspectionReport(currentYear);			
 			closeTAb.closeTab();	
 			switchTab.switchToOldTab();			
@@ -166,6 +168,7 @@ public class InspectionReportWithFilters extends TestBase {
 			getFluentWait();
 			clickElement(filter.selectFilters(chapter));
 			System.out.println("Chapters have been selected");
+			log.info("Chapters have been selected");
 			}
 			
 						
@@ -173,9 +176,7 @@ public class InspectionReportWithFilters extends TestBase {
 	        // Press the Escape key
 	        actions.sendKeys(Keys.ESCAPE).build().perform();	
 			System.out.println("VIQ Chapter filter drop down is closed");
-			
-			
-			
+			log.info("VIQ Chapter filter drop down is closed");			
 			Thread.sleep(2000);
 			
 			clickElement(report.getGenerateBtn());
@@ -186,6 +187,7 @@ public class InspectionReportWithFilters extends TestBase {
 			switchTab.switchToNewTab();
 			
 			System.out.println(getText(genRep.getFilterApplied()));
+			log.info(getText(genRep.getFilterApplied()));
 			externalInsp.GeneratedExternalInspectionReport(currentYear);
 			
 			closeTAb.closeTab();	
@@ -204,9 +206,7 @@ public class InspectionReportWithFilters extends TestBase {
 			
 			ReportFilterPage filter = new ReportFilterPage(driver);
 			
-			Thread.sleep(2000);
-			
-			
+			Thread.sleep(2000);			
 			
 			System.out.println("\n***************SIRE Inspection Report With VIQ Chapter Filter ***************\n");
 			JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
@@ -222,9 +222,8 @@ public class InspectionReportWithFilters extends TestBase {
 			
 			
 			clickElement(filter.selectLocation(location));
-			System.out.println("Location has been selected");								
-			
-			
+			System.out.println("Location has been selected");	
+			log.info("Location has been selected");	
 			Thread.sleep(2000);
 			
 			clickElement(report.getGenerateBtn());
@@ -235,6 +234,7 @@ public class InspectionReportWithFilters extends TestBase {
 			switchTab.switchToNewTab();
 			
 			System.out.println(getText(genRep.getFilterApplied()));
+			log.info(getText(genRep.getFilterApplied()));
 			externalInsp.GeneratedExternalInspectionReport(currentYear);
 			
 			closeTAb.closeTab();	
