@@ -34,4 +34,4 @@ jobs:
         run: |
           echo "Current Directory: $(pwd)"
           ls -la
-          # Add more debugging commands as needed
+          # Add more debugging commands as needed.
