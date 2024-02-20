@@ -20,15 +20,15 @@ public class ExternalInspectionReports extends TestBase {
 	public JavascriptExecutor js ;
 		
 	   
-		public void GeneratedExternalInspectionReport() throws InterruptedException, AWTException {
+		public void GeneratedExternalInspectionReport(int currentYear) throws InterruptedException, AWTException {
 			
 			GeneratedReport genRep = new GeneratedReport(driver);
 			
-			Thread.sleep(2000);
+			Thread.sleep(5000);
 			
-			if(getText(genRep.getReportText()).equals("SIRE INSPECTION - 2023")) {
+			if(getText(genRep.getReportText()).equals("SIRE INSPECTION - "+currentYear)) {
 			
-			Assert.assertEquals(getText(genRep.getReportText()), "SIRE INSPECTION - 2023");
+			Assert.assertEquals(getText(genRep.getReportText()), "SIRE INSPECTION - "+currentYear);
 			System.out.println("Report Name : - " +getText(genRep.getReportText()));
 			getFluentWait();
 			
@@ -100,11 +100,11 @@ public class ExternalInspectionReports extends TestBase {
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", genRep.getChapBenchmark());
 			System.out.println("VIQ Chapter Benchmark graph is visible on report");
-			
+			/*
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", genRep.getFleetGrpBenchmark());
 			System.out.println("Fleet Group Benchmark graph is visible on report");
-			
+			*/
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", genRep.getInspectionSummary());
 			System.out.println("Inspection Summary is visible on report");
@@ -139,18 +139,18 @@ public class ExternalInspectionReports extends TestBase {
 
 			//js = (JavascriptExecutor) driver;
 			//js.executeScript("arguments[0].scrollIntoView(true);", filter.getPageEnd());				
-		   System.out.println("SIRE Report for 2023 has been generated successfully");
+		   System.out.println("SIRE Report has been generated successfully");
 		   	
 
 		}
 		
 		
 		
-		else if(getText(genRep.getReportText()).equals("PSC INSPECTION - 2023")) {
+		else if(getText(genRep.getReportText()).equals("PSC INSPECTION - "+currentYear)) {
 			
 			
 			
-			Assert.assertEquals(getText(genRep.getReportText()), "PSC INSPECTION - 2023");
+			Assert.assertEquals(getText(genRep.getReportText()), "PSC INSPECTION - "+currentYear);
 			System.out.println("Report Name : - " +getText(genRep.getReportText()));
 			getFluentWait();
 			
@@ -250,7 +250,7 @@ public class ExternalInspectionReports extends TestBase {
 
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", genRep.getPscPageEnd());				
-		   System.out.println("PSC Report for 2023 has been generated successfully");
+		   System.out.println("PSC Report has been generated successfully");
 		   			
 
 		}

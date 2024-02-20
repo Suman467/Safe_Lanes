@@ -11,6 +11,7 @@ import java.util.concurrent.TimeUnit;
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.OutputType;
@@ -200,6 +201,12 @@ public class TestBase {
 		fluentWait.until(ExpectedConditions.visibilityOf(element));
 		return element.getText().trim();
 	}
+	
+	public void waitUntilElementIsNotPresent(WebElement element) {
+	    Wait<WebDriver> fluentWait = getFluentWait();
+	    fluentWait.until(ExpectedConditions.invisibilityOf(element));
+	}
+	
 	
 	public WebElement selectInspectionDate(WebElement element) {
 	Date currentDate = new Date();

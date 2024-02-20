@@ -1,35 +1,33 @@
 package com.sail.qa.TestCases;
 
 import java.awt.AWTException;
-import java.util.ArrayList;
 
 import org.openqa.selenium.JavascriptExecutor;
-import org.testng.Assert;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import com.sail.qa.GeneratedReports.NavigationAuditReport;
-import com.sail.qa.GeneratedReports.ExternalInspectionReports;
 import com.sail.qa.GeneratedReports.InternalInspectionReports;
 import com.sail.qa.base.TestBase;
-import com.sail.qa.pages.GeneratedReport;
 import com.sail.qa.pages.ReportPage;
 
 public class InternalInspectionReport extends TestBase {
 	
 	public JavascriptExecutor js ;
-	SwitchTab switchTab = new SwitchTab();
-	CloseTab closeTAb= new CloseTab();
-	InternalInspectionReports intrnlInsRep = new InternalInspectionReports();
+	public SwitchTab switchTab = new SwitchTab();
+	public CloseTab closeTAb= new CloseTab();
+	public InternalInspectionReports intrnlInsRep = new InternalInspectionReports();
 		
-	    @Parameters({"pageEndIndex"})
+	    @Parameters({"pageEndIndex","currentYear"})
 		@Test
-		public void GenerateNavigationAuditReport(int pageEndIndex) throws InterruptedException, AWTException {
+		public void GenerateNavigationAuditReport(int pageEndIndex, int currentYear) throws InterruptedException, AWTException {
 			
 			ReportPage report = new ReportPage(driver);
+			report.getRefreshIcon();
 			getFluentWait();
-			clickElement(report.getRefreshIcon());
+			driver.navigate().refresh();
 			getFluentWait();
 			System.out.println("\n***************Navigation Audit Inspection Report***************\n");
 			JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
@@ -42,22 +40,21 @@ public class InternalInspectionReport extends TestBase {
 			log.info("Generate button has been clicked on the report page");
 			System.out.println("Generate button has been clicked on the report page");
 			getFluentWait();
-			switchTab.switchToNewTab();
-			
-			intrnlInsRep.GenerateInternalInspectionReport(pageEndIndex);
+			switchTab.switchToNewTab();	
+			Thread.sleep(2000);
+			intrnlInsRep.GenerateInternalInspectionReport(pageEndIndex, currentYear);
 
 			
 
 		}
 		
-	    @Parameters({"pageEndIndex"})
+	    @Parameters({"pageEndIndex","currentYear"})
 		@Test
-		public void GenerateSupdtInspectionReport(@Optional int pageEndIndex) throws InterruptedException, AWTException {
+		public void GenerateSupdtInspectionReport(@Optional int pageEndIndex, int currentYear) throws InterruptedException, AWTException {
 			
 			ReportPage report = new ReportPage(driver);
+			report.getRefreshIcon();
 			driver.navigate().refresh();
-			getFluentWait();
-			clickElement(report.getRefreshIcon());
 			getFluentWait();
 			System.out.println("\n***************Supdt.Inspection Report***************\n");
 			JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
@@ -72,10 +69,12 @@ public class InternalInspectionReport extends TestBase {
 			getFluentWait();
 			
 			switchTab.switchToNewTab();
+			Thread.sleep(3000);
 
-			intrnlInsRep.GenerateInternalInspectionReport(pageEndIndex);
+			intrnlInsRep.GenerateInternalInspectionReport(pageEndIndex, currentYear);
 			closeTAb.closeTab();	
-			switchTab.switchToOldTab();		
+			switchTab.switchToOldTab();	
+			
 			getFluentWait();
 			
 

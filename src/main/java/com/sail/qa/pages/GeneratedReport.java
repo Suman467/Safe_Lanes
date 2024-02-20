@@ -70,7 +70,7 @@ public class GeneratedReport {
 	@FindBy(xpath="(//*[name()='tspan' and contains (text(),'Company Benchmark')])[1]")
 	WebElement companyBenchmarkYearly;
 	
-	@FindBy(xpath="//*[name()='tspan' and contains (text(),'chapter Benchmark')]")
+	@FindBy(xpath="//*[name()='tspan' and contains (text(),'Chapter Benchmark')]")
 	WebElement ChapBenchmark;
 	
 	@FindBy(xpath="//*[name()='tspan' and contains (text(),'Fleet Group Benchmark')]")

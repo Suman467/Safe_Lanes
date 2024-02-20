@@ -8,13 +8,15 @@
 	</listeners>
 
 	<test name="Generate Report  ">
+	
+	<parameter name="currentYear" value="2024"/>
 
 
 		<classes>			
 			<class name="com.sail.qa.TestCases.ExternalInspectionReport">
 				<methods>
 				     <include name="GenerateSireReport"/>
-					 <include name="GeneratePSCReport"/>   
+					  <include name="GeneratePSCReport"/>  
 				</methods>
 			</class>
 		</classes>

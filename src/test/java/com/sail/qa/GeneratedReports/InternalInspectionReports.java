@@ -4,6 +4,7 @@ import java.awt.AWTException;
 import java.util.ArrayList;
 
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
@@ -19,19 +20,19 @@ public class InternalInspectionReports extends TestBase {
 		
 		
 		
-		
+	
 		@Test
-		public void GenerateInternalInspectionReport(int pageEndIndex) throws InterruptedException, AWTException {
+		public void GenerateInternalInspectionReport(int pageEndIndex , int currentYear) throws InterruptedException, AWTException {
 			
 			GeneratedReport genRep = new GeneratedReport(driver);
-			driver.navigate().refresh();
+			//driver.navigate().refresh();
+			Thread.sleep(4000);
 			
-			if(getText(genRep.getReportText()).equals("SUPERINTENDENT INSPECTION - 2023"))  {
+			if(getText(genRep.getReportText()).equals("SUPERINTENDENT INSPECTION - "+currentYear))  {
 			
-			Assert.assertEquals(getText(genRep.getReportText()), "SUPERINTENDENT INSPECTION - 2023");
+			Assert.assertEquals(getText(genRep.getReportText()), "SUPERINTENDENT INSPECTION - "+currentYear);
 			System.out.println("Report Name : - " +getText(genRep.getReportText()));
 			getFluentWait();			
-			
 			
 			js = (JavascriptExecutor) driver;			 
 			js.executeScript("arguments[0].scrollIntoView(true);", genRep.getYearly());
@@ -116,15 +117,13 @@ public class InternalInspectionReports extends TestBase {
 			
 			
 			
-			else if(getText(genRep.getReportText()).equals("NAVIGATION AUDIT - 2023")) {			
+			else if(getText(genRep.getReportText()).equals("NAVIGATION AUDIT - "+currentYear)) {			
 				
 				
 				
-				Assert.assertEquals(getText(genRep.getReportText()), "NAVIGATION AUDIT - 2023");
+				Assert.assertEquals(getText(genRep.getReportText()), "NAVIGATION AUDIT - "+currentYear);
 				System.out.println("Report Name : - " +getText(genRep.getReportText()));
-				getFluentWait();			
-				
-				
+				getFluentWait();
 				js = (JavascriptExecutor) driver;			 
 				js.executeScript("arguments[0].scrollIntoView(true);", genRep.getYearly());
 				System.out.println("Yearly graph is visible on report");
@@ -206,15 +205,17 @@ public class InternalInspectionReports extends TestBase {
 				js = (JavascriptExecutor) driver;
 				js.executeScript("arguments[0].scrollIntoView(true);", genRep.getNavigationAuditFindingByMaster());
 				System.out.println("NAVIGATION AUDIT - Finding By Master data is visible");	
-				System.out.println("NAVIGATION AUDIT Report for 2023 has been generated successfully");
-				
-				
+				System.out.println("NAVIGATION AUDIT Report for 2023 has been generated successfully");					
 
 		
+			}	
+			
+			else {
+				System.out.println("Issue in Generated report");
 			}
-						
 
 		}
 		
 		
+				
 	}

@@ -3,6 +3,7 @@ package com.sail.qa.TestCases;
 import java.awt.AWTException;
 
 import org.openqa.selenium.JavascriptExecutor;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.sail.qa.GeneratedReports.ExternalInspectionReports;
@@ -16,15 +17,14 @@ public class ExternalInspectionReport extends TestBase {
 	CloseTab closeTAb= new CloseTab();
 	ExternalInspectionReports extReport= new ExternalInspectionReports();
 		
-		
+	    @Parameters({"currentYear"})
 		@Test
-		public void GenerateSireReport() throws InterruptedException, AWTException {
-			ReportPage report = new ReportPage(driver);
+		public void GenerateSireReport(int currentYear ) throws InterruptedException, AWTException {
+			ReportPage report = new ReportPage(driver);		
 			
 			
 			getFluentWait();
-			clickElement(report.getRefreshIcon());
-			getFluentWait();
+			
 			System.out.println("\n***************SIRE Inspection Report***************\n");
 			JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
 			jsExecutor.executeScript("arguments[0].click();", report.getSire());
@@ -41,22 +41,23 @@ public class ExternalInspectionReport extends TestBase {
 
 			switchTab.switchToNewTab();
 					
-			extReport.GeneratedExternalInspectionReport();
+			extReport.GeneratedExternalInspectionReport(currentYear);
 			closeTAb.closeTab();	
 			switchTab.switchToOldTab();
 
 		}
 		
 		
-		
+	    @Parameters({"currentYear"})
 		@Test
-		public void GeneratePSCReport() throws InterruptedException, AWTException {
+		public void GeneratePSCReport(int currentYear) throws InterruptedException, AWTException {
 			
 			
 			ReportPage report = new ReportPage(driver);
 			
 			getFluentWait();
 			clickElement(report.getRefreshIcon());
+			driver.navigate().refresh();
 			getFluentWait();
 			System.out.println("\n\n***************PSC Inspection Report***************\n\n");
 			JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
@@ -73,7 +74,7 @@ public class ExternalInspectionReport extends TestBase {
 			
 			switchTab.switchToNewTab();
 			
-			extReport.GeneratedExternalInspectionReport();
+			extReport.GeneratedExternalInspectionReport(currentYear);
 			
 			closeTAb.closeTab();	
 			switchTab.switchToOldTab();

@@ -10,12 +10,13 @@
 	<test name="Generate Report  ">
 	
 	<parameter name="pageEndIndex" value="35"/>
+	<parameter name="currentYear" value="2024"/>
 
 
 		<classes>		
 			<class name="com.sail.qa.TestCases.InternalInspectionReport">
 				<methods>
-				     <include name="GenerateSupdtInspectionReport"/>
+				     <include name="GenerateSupdtInspectionReport"/> 
 				     <include name="GenerateNavigationAuditReport"/>
 				</methods>
 			</class>
