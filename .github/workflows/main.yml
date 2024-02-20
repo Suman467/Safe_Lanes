@@ -22,14 +22,39 @@ jobs:
           chmod +x mvnw
         working-directory: .  # Set to the root directory
 
-      - name: Run TestNG Suite
-        working-directory: .  # Set to the root directory
+      - name: Set JAVA_HOME
         run: |
-          ./mvnw test -DsuiteXmlFile=testSuites/04-Internal_Reoprts.xml -suitename "Admin Sign-in Successfull And Generate Supdt. Inspection And Navigation Audit Report" -verbose
-    # Adjust the command based on your project's build tool
+          echo "JAVA_HOME=$(echo $JAVA_HOME)" >> $GITHUB_ENV
+        working-directory: .  # Set to the root directory
+
+      - name: Print Maven Wrapper Version
+        run: |
+          ./mvnw --version
+        working-directory: .  # Set to the root directory
+
+      - name: Print Maven Goals
+        run: |
+          ./mvnw help:effective-settings help:effective-pom help:active-profiles test -DsuiteXmlFile=testSuites/04-Internal_Reoprts.xml -verbose
+        working-directory: .  # Set to the root directory
+
+      - name: Print Environment Variables
+        run: |
+          env
+        working-directory: .  # Set to the root directory
+
+      - name: Print TestNG Suite XML
+        run: |
+          cat testSuites/04-Internal_Reoprts.xml
+        working-directory: .  # Set to the root directory
+
+      - name: Run TestNG Without Suite Name
+        run: |
+          ./mvnw test -DsuiteXmlFile=testSuites/04-Internal_Reoprts.xml -verbose
+        working-directory: .  # Set to the root directory
 
       - name: Debug Information
         run: |
           echo "Current Directory: $(pwd)"
           ls -la
           # Add more debugging commands as needed
+        working-directory: .  # Set to the root directory
