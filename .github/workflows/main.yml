@@ -26,7 +26,7 @@ jobs:
         working-directory: .  # Set to the root directory
         run: |
           ./mvnw test -DsuiteXmlFile=testSuites/04-Internal_Reoprts.xml
-          # Adjust the command based on your project's build tool
+    # Adjust the command based on your project's build tool
 
       - name: Debug Information
         run: |
