@@ -23,7 +23,10 @@ jobs:
         working-directory: .  # Set to the root directory
 
       - name: Print Executing Suite
-        run: echo "Executing TestNG Suite:01-sign-in-successfull.xml "
+        run: |
+           suite_name=$(grep -oP -m 1 '(?<=-DsuiteXmlFile=).*(?=\")' mvnw || echo "Suite Name Not Found")
+           echo "Executing TestNG Suite: $suite_name"
+
 
       - name: Run Specific TestNG Suite
         working-directory: .  # Set to the root directory
@@ -34,5 +37,6 @@ jobs:
 
       - name: Debug Information
         run: |
-          echo "Current Directory: $(pwd)"
-          ls -
+         echo "Current Directory: $(pwd)"
+         ls -la
+         # Add more debugging commands as needed
