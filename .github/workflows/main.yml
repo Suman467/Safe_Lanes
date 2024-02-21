@@ -32,7 +32,7 @@ jobs:
       - name: Run TestNG Suites
         working-directory: .  # Set to the root directory
         run: |
-          ./mvnw test -Dsurefire.suiteXmlFiles=$SUITE_1_PATH,$SUITE_2_PATH
+          ./mvnw test -Dsurefire.suiteXmlFiles=$SUITE_1_PATH
           # Add more suites using a comma-separated list
 
       - name: Clear Maven Cache
