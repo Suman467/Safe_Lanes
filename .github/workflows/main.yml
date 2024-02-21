@@ -20,4 +20,4 @@ jobs:
         java-version: '11'
 
     - name: Run Test Suite
-      run: mvn clean test -Dsuite.file=testSuites/01-sign-in-successfull.xml
+      run: mvn clean test -Dsuite.file=testSuites/01-sign-in-successfull.xml -X
