@@ -27,7 +27,7 @@ jobs:
       - name: Run TestNG Suite
         working-directory: .  # Set to the root directory
         run: |
-          ./mvnw test -DsuiteXmlFile=testSuites/01-sign-in-successfull.xml
+          ./mvnw test -DsuiteXmlFile=./testSuites/01-sign-in-successfull.xml -X
           # Adjust the command based on your project's build tool
 
       - name: Debug Information
