@@ -42,6 +42,7 @@ public class TestBase {
 	public static JavascriptExecutor jse = (JavascriptExecutor) TestBase.driver;
 	
 
+	@SuppressWarnings("deprecation")
 	@Parameters({ "browser", "execution" })
 	
 	public void setup(String browser, @Optional() String execution) {

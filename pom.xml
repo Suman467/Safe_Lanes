@@ -23,7 +23,7 @@
    </properties>
    <build>
   
-   <pluginManagement>
+   
       <plugins>
 
         <plugin>
@@ -31,14 +31,13 @@
           <artifactId>maven-surefire-plugin</artifactId>
           <version>3.0.0-M5</version>
            <configuration>
-           <!-- <redirectTestOutputToFile>false</redirectTestOutputToFile> -->
              <suiteXmlFiles>
                <suiteXmlFile>./testSuites/01-sign-in-successfull.xml</suiteXmlFile>
             </suiteXmlFiles>
          </configuration>
         </plugin>
       </plugins>
-    </pluginManagement>
+    
     
     
      <resources>
