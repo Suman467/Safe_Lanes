@@ -31,9 +31,9 @@
           <artifactId>maven-surefire-plugin</artifactId>
           <version>3.0.0-M5</version>
            <configuration>
-            <redirectTestOutputToFile>false</redirectTestOutputToFile>
+           <!-- <redirectTestOutputToFile>false</redirectTestOutputToFile> -->
              <suiteXmlFiles>
-               <suiteXmlFile>${suite.file}</suiteXmlFile>
+               <suiteXmlFile>${testngTest}</suiteXmlFile>
             </suiteXmlFiles>
          </configuration>
         </plugin>
