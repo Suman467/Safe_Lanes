@@ -17,7 +17,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           distribution: "adopt"
-          java-version: "11"
+          java-version: "8"
 
       - name: Set execute permissions for mvnw
         run: |
@@ -33,5 +33,9 @@ jobs:
       - name: Debug Information
         run: |
           echo "Current Directory: $(pwd)"
+          echo "Java Version: $(java -version)"
+          echo "Maven Version: $(mvn -version)"
+          echo "Current Directory: $(pwd)"
+          ls -la
           ls -la
           # Add more debugging commands as needed
