@@ -21,3 +21,10 @@ jobs:
 
     - name: Run Test Suite
       run: mvn clean test -Dsuite.file=testSuites/01-sign-in-successfull.xml -X
+
+    - name: Log Environment Details
+      run: |
+         echo "Java Version: $(java -version)"
+         echo "Maven Version: $(mvn -v)"
+         # Add any other relevant environment details
+
