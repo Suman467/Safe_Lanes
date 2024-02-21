@@ -30,6 +30,10 @@ jobs:
           ./mvnw test -DsuiteXmlFile=testSuites/01-sign-in-successfull.xml
           # Adjust the command based on your project's build tool
 
+      - name: Clear Maven Cache
+        run: |
+         mvn dependency:purge-local-repository
+
       - name: Debug Information
         run: |
           echo "Current Directory: $(pwd)"
