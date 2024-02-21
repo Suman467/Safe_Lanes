@@ -27,8 +27,6 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
-
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.github.bonigarcia.wdm.config.OperatingSystem;
 
@@ -58,10 +56,10 @@ public class TestBase {
 
 			if (OS.indexOf("nix") >= 0 || OS.indexOf("nux") >= 0 || OS.indexOf("aix") > 0)
 				WebDriverManager.chromedriver().operatingSystem(OperatingSystem.LINUX).setup();
-
+/*
 			else if (OS.indexOf("mac") >= 0)
 				WebDriverManager.chromedriver().operatingSystem(OperatingSystem.MAC).setup();
-
+*/
 			else
 				WebDriverManager.chromedriver().operatingSystem(OperatingSystem.WIN).setup();
 

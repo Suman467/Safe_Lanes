@@ -1,14 +1,10 @@
 package com.sail.qa.TestCases;
 
-import java.awt.AWTException;
-import java.util.ArrayList;
-
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.sail.qa.base.TestBase;
-import com.sail.qa.pages.GeneratedReport;
 import com.sail.qa.pages.ReportPage;
 
 public class ReportPageTest extends TestBase {
