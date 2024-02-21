@@ -56,10 +56,10 @@ public class TestBase {
 
 			if (OS.indexOf("nix") >= 0 || OS.indexOf("nux") >= 0 || OS.indexOf("aix") > 0)
 				WebDriverManager.chromedriver().operatingSystem(OperatingSystem.LINUX).setup();
-/*
+
 			else if (OS.indexOf("mac") >= 0)
 				WebDriverManager.chromedriver().operatingSystem(OperatingSystem.MAC).setup();
-*/
+
 			else
 				WebDriverManager.chromedriver().operatingSystem(OperatingSystem.WIN).setup();
 
