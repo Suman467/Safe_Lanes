@@ -6,12 +6,12 @@ on:
       - master
 
 jobs:
-  test:
+  testSuites:
     runs-on: ubuntu-latest
 
     env:
-      SUITE_1_PATH: testSuites/01-sign-in-successfull.xml
-      #SUITE_2_PATH: $GITHUB_WORKSPACE/testSuites/suite2.xml
+      #SUITE_1_PATH: testSuites/01-sign-in-successfull.xml
+      SUITE_2_PATH: testSuites/04-Internal_Reoprts.xml
       # Add more suites as needed
 
     steps:
@@ -32,7 +32,7 @@ jobs:
       - name: Run TestNG Suites
         working-directory: .  # Set to the root directory
         run: |
-          ./mvnw test -Dsurefire.suiteXmlFiles=${SUITE_1_PATH}
+          ./mvnw test -Dsurefire.suiteXmlFiles=${SUITE_2_PATH}
           # Add more suites using a comma-separated list
 
       - name: Clear Maven Cache
