@@ -1,10 +1,12 @@
+name: Run Sign-In Suite
+
 on:
   push:
     branches:
       - master
 
 jobs:
-  SignInSuite:
+  test:
     runs-on: ubuntu-latest
 
     steps:
@@ -22,10 +24,11 @@ jobs:
           chmod +x mvnw
         working-directory: .  # Set to the root directory
 
-      - name: Run Specific TestNG Suite
+      - name: Run TestNG Suite
         working-directory: .  # Set to the root directory
         run: |
-         ./mvnw verify -Dgroups="*" -Dsuite.file=testSuites/01-sign-in-successfull.xml
+          ./mvnw test -DtestngTest=testSuites/01-sign-in-successfull.xml
+          # Adjust the command based on your project's build tool
 
       - name: Debug Information
         run: |
