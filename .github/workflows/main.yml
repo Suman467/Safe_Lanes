@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      SUITE_1_PATH: $GITHUB_WORKSPACE/testSuites/01-sign-in-successfull.xml
+      SUITE_1_PATH: testSuites/01-sign-in-successfull.xml
       #SUITE_2_PATH: $GITHUB_WORKSPACE/testSuites/suite2.xml
       # Add more suites as needed
 
