@@ -134,7 +134,14 @@ public class TestBase {
 			JavascriptExecutor js = (JavascriptExecutor) TestBase.driver;
 			js.executeScript("arguments[0].scrollIntoView();", e);
 		}
-		e.click();
+		//e.click();
+		
+		try {
+            e.click(); // Attempt to click again after scrolling into view
+        } catch (Exception exAfterScroll) {
+            // Handle the exception or log a message if the second click also fails
+            exAfterScroll.printStackTrace(); // or log.error("Failed to click element after scrolling into view", exAfterScroll);
+        }
 	}
 
 	public static void scrollCheckAndWrite(WebElement e, String text) {
@@ -147,6 +154,15 @@ public class TestBase {
 		}
 		e.sendKeys(text);
 	}
+	
+	
+	public static void scrollToElement(WebDriver driver, WebElement e) {
+	
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", e);
+}
+	
+	
+	
 
 	public static FluentWait<WebDriver> getFluentWait() {
 		return new FluentWait<>(driver).withTimeout(Duration.ofSeconds(160)).pollingEvery(Duration.ofSeconds(30))

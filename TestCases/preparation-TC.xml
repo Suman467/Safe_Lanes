@@ -11,11 +11,16 @@
 
 		<!--Sign-in Inputs -->
  
+       <parameter name = "indexToSelectVessel" value="9"/>
+       <parameter name = "indexToSelectPort" value= "2"/>
+       <parameter name = "viqGroup" value= "Oil"/>
+       <parameter name="viqVersion" value="2"/>
 
 		<classes>
 			<class name="com.sail.qa.TestCases.PreparationPageTest">
 				<methods>
 					<include name="verifyPrepPage" />
+					<include name="addNewPreparation"/>
 				</methods>
 			</class>
 		</classes>

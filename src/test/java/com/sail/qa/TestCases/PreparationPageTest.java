@@ -36,6 +36,7 @@ public class PreparationPageTest extends TestBase{
 		Assert.assertEquals(plnText, "PLANNED VESSELS");
 		getFluentWait();
 		System.out.println("The text \"PLANNED VESSELS\" is visible on the page");
+		log.info("The text \"PLANNED VESSELS\" is visible on the page");
 		getFluentWait();
 		Assert.assertTrue(pp.getActiveBtn().isDisplayed());
 		Assert.assertTrue(pp.getArchiveBtn().isDisplayed());
@@ -62,15 +63,21 @@ public class PreparationPageTest extends TestBase{
 	 * @throws InterruptedException
 	 * @throws TimeoutException
 	 */
-	@Parameters({"indexToSelectVessel","indexToSelectPort", "viqGroup"})
+	@Parameters({"indexToSelectVessel","indexToSelectPort", "viqGroup","viqVersion"})
 	@Test
-	public void addNewPreparation(int indexToSelectVessel ,int indexToSelectPort, String viqGrp) throws InterruptedException, TimeoutException
+	public void addNewPreparation(int indexToSelectVessel ,int indexToSelectPort, String viqGrp, String viqVersion) throws InterruptedException, TimeoutException
 	{
 		PreparationPage pp = new PreparationPage(driver);
 		Toaster toast = new Toaster(driver);
 		Thread.sleep(3000);
 		
+		
+		String totalActivePrepCount= getText(pp.getActivePreparationCount());
+		System.out.println("Active preparation count is : "+totalActivePrepCount);
+	
 		clickElement(pp.getNewPrepBtn());
+		log.info("+ New Preparation button is clicked");
+		System.out.println("+ New Preparation button is clicked");
 		Thread.sleep(3000);
 		clickElement(pp.getSelectVesesl());
 		log.info("Select Vessel drop down is clicked");
@@ -96,108 +103,71 @@ public class PreparationPageTest extends TestBase{
 		clickElement(selectInspectionDate(pp.getCurrentDate()));
 		log.info("Inspection date is entered");
 		System.out.println("Inspection date is entered");
-		
-		getFluentWait();
-		clickElement(pp.getViqVersion());
-		getFluentWait();
-		clickElement(pp.getViq7());
-		getFluentWait();
-		log.info("VIQ vesrion is selected");
-		System.out.println("VIQ vesrion is selected");
-		
 		getFluentWait();
 		
-		clickElement(pp.getViqGrp());
-		clickElement(pp.selectViqGrp(viqGrp));
+		 Actions actions = new Actions(driver);
+		 actions.moveToElement(pp.getHover()).click().perform();
+		 
+		 clickElement(pp.selectViqVersion(viqVersion));
+		 log.info("VIQ Vesrion is selected");
+		 System.out.println("VIQ Vesrion is selected");       
+		
+		 clickElement(pp.getViqGrp());	
+		 
+		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+        jsExecutor.executeScript("arguments[0].click();", pp.selectViqGrp(viqGrp));
+        
+        
+		
 		log.info("VIQ group  is selected");
 		System.out.println("VIQ group is selected");		
 		getFluentWait();
 		
 		
-		Actions actions = new Actions(driver);
+		//Actions actions = new Actions(driver);
         // Press the Escape key
         actions.sendKeys(Keys.ESCAPE).build().perform();	
+        log.info("VIQ group drop down is closed");
 		System.out.println("VIQ group drop down is closed");
 		getFluentWait();
 		
-		
-		
-		
+		Assert.assertTrue(pp.getCreatedByField().isDisplayed());
+		log.info("CreatedBy filed is displayed in preparation creation form ");
+		System.out.println("CreatedBy filed is displayed in preparation creation form ");
+		getFluentWait();
+		Assert.assertTrue(pp.getNameAndDesignation().isDisplayed());
+		log.info("Name/Designation filed is displayed in preparation creation form ");
+		System.out.println("Name/Designation filed is displayed in preparation creation form ");
+		getFluentWait();
+		Assert.assertTrue(pp.getAssessmentType().isDisplayed());
+		log.info("Assessment Type filed is displayed in preparation creation form ");
+		System.out.println("Assessment Type field is displayed in preparation creation form ");
+		getFluentWait();
+			
 		scrollCheckAndClick(pp.getSaveBtn());
 		
+		System.out.println("SAVE button is clicked");
+		Thread.sleep(1000);
 		
 		String toastMsz="Preparation Created Successfully";
+		
 		Assert.assertTrue(toast.getToaster().isDisplayed());
 		Assert.assertEquals(toastMsz, getText(toast.getToaster()));
 		System.out.println(getText(toast.getToaster()) +"is dispakyed");
-		System.out.println("New Preapation is saved");
-		Thread.sleep(5000);
-	
+		System.out.println("New Preapation is created successfully");
+		log.info("New Preapation is created successfully");
+		Thread.sleep(1000);
 		
-/*
-		int maxRetries = 3; // Set the maximum number of retries
-
-		for (int attempt = 1; attempt <= maxRetries; attempt++) {
-		    clickElement(pp.getNewPrepBtn());
-		    // ... perform other actions
-		    
-		   
-		        // Check for the visibility of the element
-		        if (pp.getCalenderIcon().isDisplayed()) {
-		            
-		        	clickElement(pp.getSelectVesesl());
-					log.info("Select Vessel drop down is clicked");
-					System.out.println("Select Vessel drop down is clicked");
-					getFluentWait();
-					clickElement(pp.selectVeseslFromDropdown(indexToSelectVessel));
-					log.info("Vessel is selected from drop down");
-					System.out.println("Vessel is selected from drop down");
-					getFluentWait();
-					clickElement(pp.getCalenderIcon());
-					getFluentWait();
-					clickElement(selectInspectionDate(pp.getCurrentDate()));
-					log.info("Inspection date is entered");
-					System.out.println("Inspection date is entered");
-					getFluentWait();
-					pp.selectViqGrp(viqGrp);
-					log.info("VIQ group  is selected");
-					System.out.println("VIQ group is selected");
-					getFluentWait();					
-					clickElement(pp.getViqVersion());
-					getFluentWait();
-					clickElement(pp.getViq7());
-					getFluentWait();
-					log.info("VIQ vesrion is selected");
-					System.out.println("VIQ vesrion is selected");
-					getFluentWait();
-					
-					clickElement(pp.getSaveBtn());
-					Thread.sleep(2000);
-					
-		            break; // Exit the loop
-		        }
-		    
-		     else {
-		        clickElement(pp.getCloseBtn());
-		        Thread.sleep(2000);
-		    }			
-		}     */
+		String totalActivePrepCountNew= getText(pp.getActivePreparationCount());
+		if(!totalActivePrepCountNew.equals (totalActivePrepCount))
+		{
+			System.out.println("Count is increased by 1");
+		}
+		else
+		{
+			System.out.println("Count is not increased");
+		}
 		
 	}
-	
-	@Parameters({"indexofPrepTable"})
-	@Test
-	public void createdPreparationDetails(int index) throws InterruptedException 
-	{
-		PreparationPage pp = new PreparationPage(driver);
-		Thread.sleep(3000);
-		 driver.navigate().refresh();
-		 waitUntilElementPresent(pp.getInspectionColumn());
-		 clickElement(pp.getStartDate());
-		 clickElement(pp.getStartDate());
-		 Thread.sleep(2000);
-		 		 
-	}
-	
 	
 }

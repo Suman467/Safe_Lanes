@@ -68,10 +68,14 @@ public class PreparationPage {
 	@FindBy(xpath="//div[@class='mat-calendar-body-cell-content mat-calendar-body-today']")
     WebElement currentDate;
     
-    @FindBy(xpath="//mat-select[@id='formly_9_matselect_viqVersion_0']")
-    WebElement viqVersion;
+    //@FindBy(xpath="//span[@class='mat-select-placeholder ng-tns-c150-154 ng-star-inserted']")
+	@FindBy(xpath="//formly-field[2]//formly-group[1]//formly-field[1]//formly-wrapper-mat-form-field[@class='ng-star-inserted']")
+    WebElement hover;
     
-    @FindBy(xpath="//span[normalize-space()='VIQ 7']")
+	@FindBy(xpath="//div[@class='mat-select-arrow ng-tns-c150-324']")
+	WebElement viqVersion;
+   
+	@FindBy(xpath="//span[normalize-space()='VIQ 7']")
 	WebElement viq7;
     
     @FindBy(xpath="//span[contains(text(),'VIQ Group')]")
@@ -80,7 +84,7 @@ public class PreparationPage {
     @FindBy(xpath="//span[@class='mat-option-text'][normalize-space()='Oil']")
     WebElement viqOil;
     
-    @FindBy(xpath="//span[contains(text(),'Save Changes')]")
+    @FindBy(xpath="//button[@type='submit']")
     WebElement saveBtn;
     
     @FindBy(xpath="//mat-icon[normalize-space()='close']")
@@ -103,7 +107,10 @@ public class PreparationPage {
     
    
     
-    
+	 public WebElement getHover() {
+			return hover;
+		}
+
     
     public WebElement getViqOil() {
 		return viqOil;
@@ -128,6 +135,8 @@ public class PreparationPage {
 		return vesselList;
        
     }
+	
+	
     
    
 
@@ -145,12 +154,20 @@ public class PreparationPage {
 		return vesselList;
        
     }
+	
+	 public WebElement selectViqVersion(String indexOfViqVersion) {
+		 WebElement viqVersion = ldriver.findElement(By.xpath("(//span[@class='mat-option-text'])[" + indexOfViqVersion + "]"));
+			return viqVersion;
+	        
+	    }
     
     public WebElement selectViqGrp(String viqGroup) {
         WebElement viqGroupElement = ldriver.findElement(By.xpath("//span[normalize-space() = '" + viqGroup + "']"));
 		return viqGroupElement;
         
     }
+    
+    
     
 
 	public WebElement getSelectVesesl() {
@@ -245,6 +262,44 @@ public class PreparationPage {
 		public WebElement getArchiveBtn() {
 			return archiveBtn;
 		}
+		
+		
+		
+		@FindBy(xpath= "//input[@placeholder='Created By']")
+		WebElement createdByField ;
+		
+		@FindBy(xpath="//*[@placeholder='Name/Designation']")
+		WebElement nameAndDesignation;
+		
+		@FindBy(xpath="//*[@placeholder='Select Assessment Type']")
+		WebElement assessmentType;
+		
+		@FindBy(xpath="//span[@ref='lbRecordCount']")
+		WebElement activePreparationCount;
+		
+		public WebElement getActivePreparationCount() {
+			return activePreparationCount;
+		}
+
+
+
+		public WebElement getCreatedByField() {
+			return createdByField;
+		}
+
+
+
+		public WebElement getNameAndDesignation() {
+			return nameAndDesignation;
+		}
+
+
+
+		public WebElement getAssessmentType() {
+			return assessmentType;
+		}
+
+				
 
 	
 	
