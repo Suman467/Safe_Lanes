@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      SUITE_1_PATH: testSuites/01-sign-in-successful.xml
+      SUITE_1_PATH: testSuites/01-sign-in-successfull.xml
      # SUITE_2_PATH: testSuites/09-Create_Preparation.xml
       # Add more suites as needed
 
