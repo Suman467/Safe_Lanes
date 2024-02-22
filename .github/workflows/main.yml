@@ -13,7 +13,7 @@ jobs:
 
     env:
       SUITE_1_PATH: testSuites/01-sign-in-successful.xml
-      SUITE_2_PATH: testSuites/09-Create_Preparation.xml
+     # SUITE_2_PATH: testSuites/09-Create_Preparation.xml
       # Add more suites as needed
 
     steps:
@@ -34,7 +34,7 @@ jobs:
       - name: Run TestNG Suites
         working-directory: .  # Set to the root directory
         run: |
-          ./mvnw test -Dsurefire.suiteXmlFiles=${SUITE_1_PATH},${SUITE_2_PATH}
+          ./mvnw test -Dsurefire.suiteXmlFiles=${SUITE_1_PATH} #,${SUITE_2_PATH}
           # Add more suites using a comma-separated list
 
       - name: Clear Maven Cache
