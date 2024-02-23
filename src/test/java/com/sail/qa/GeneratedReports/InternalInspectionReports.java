@@ -26,7 +26,7 @@ public class InternalInspectionReports extends TestBase {
 			
 			GeneratedReport genRep = new GeneratedReport(driver);
 			//driver.navigate().refresh();
-			Thread.sleep(4000);
+			Thread.sleep(6000);
 			
 			if(getText(genRep.getReportText()).equals("SUPERINTENDENT INSPECTION - "+currentYear))  {
 			

@@ -117,14 +117,12 @@ public class PreparationPageTest extends TestBase{
 		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
         jsExecutor.executeScript("arguments[0].click();", pp.selectViqGrp(viqGrp));
         
-        
-		
+        		
 		log.info("VIQ group  is selected");
 		System.out.println("VIQ group is selected");		
 		getFluentWait();
+				
 		
-		
-		//Actions actions = new Actions(driver);
         // Press the Escape key
         actions.sendKeys(Keys.ESCAPE).build().perform();	
         log.info("VIQ group drop down is closed");
