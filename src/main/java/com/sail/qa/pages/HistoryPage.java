@@ -1,5 +1,6 @@
 package com.sail.qa.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -52,4 +53,30 @@ public class HistoryPage {
 	
 	@FindBy(xpath="//span[normalize-space()='UPLOAD']")
 	WebElement uploadButton;
-}
+	
+	@FindBy(xpath="//div[contains(text(),'*Vessel is required')]")
+	WebElement error;
+	
+	@FindBy(xpath="//div[@class='mat-select-value ng-tns-c150-13']")
+	WebElement inspectionList;
+	
+	public WebElement selectInspectionFromDropdown(int indexToSelectInspection) {
+        WebElement inspection = ldriver.findElement(By.xpath("(//span[@class='mat-option-text'])[" + indexToSelectInspection + "]"));
+		return inspection;
+	}
+       
+	
+	
+	public WebElement selectVesselFromDropdown(int indexToSelectVessel) {
+        WebElement vesselList = ldriver.findElement(By.xpath("(//span[@class='mat-option-text'])[" + indexToSelectVessel + "]"));
+		return vesselList;
+       
+    }
+	
+	@FindBy(xpath="//app-toolbar[@class='ng-star-inserted']//span[@class='mat-button-wrapper']")
+	WebElement inspectionsBtn;
+	
+	
+	
+	
+	}
