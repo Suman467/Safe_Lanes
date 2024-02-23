@@ -16,7 +16,7 @@ public class ReportPageTest extends TestBase {
 	public void VerifyReportTab() throws InterruptedException
 	{
 		ReportPage report= new ReportPage(driver);
-		getFluentWait();
+		Thread.sleep(2000);
 		clickElement(report.getReportTab());
 		log.info("Report tab is clicked");
 		System.out.println("Report tab is clicked");
