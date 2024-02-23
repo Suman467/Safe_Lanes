@@ -1,4 +1,4 @@
-name: Run TestNG Suite for Internal Inspection Reports
+name: 03 Internal Inspection Reports Suite
 
 on:
   workflow_dispatch:
