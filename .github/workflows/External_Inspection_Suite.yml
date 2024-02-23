@@ -1,4 +1,4 @@
-name: Run TestNG Suite for External Inspection Reports
+name: 04 External Inspection Reports Suite
 
 on:
   workflow_dispatch:
