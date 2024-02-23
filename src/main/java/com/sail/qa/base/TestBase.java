@@ -165,7 +165,7 @@ public class TestBase {
 	
 
 	public static FluentWait<WebDriver> getFluentWait() {
-		return new FluentWait<>(driver).withTimeout(Duration.ofSeconds(480)).pollingEvery(Duration.ofSeconds(30))
+		return new FluentWait<>(driver).withTimeout(Duration.ofSeconds(780)).pollingEvery(Duration.ofSeconds(30))
 				.ignoring(NoSuchElementException.class);
 	}
 

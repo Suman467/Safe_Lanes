@@ -41,7 +41,7 @@ public class InternalInspectionReport extends TestBase {
 			System.out.println("Generate button has been clicked on the report page");
 			getFluentWait();
 			switchTab.switchToNewTab();	
-			Thread.sleep(2000);
+			getFluentWait();
 			intrnlInsRep.GenerateInternalInspectionReport(pageEndIndex, currentYear);
 
 			
