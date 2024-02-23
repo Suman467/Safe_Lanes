@@ -1,4 +1,4 @@
-name: Run TestNG Suites
+name: 01 TestNG Suites for Sign In
 
 on:
   workflow_dispatch:
