@@ -55,10 +55,9 @@ public class ExternalInspectionReport extends TestBase {
 			
 			ReportPage report = new ReportPage(driver);
 			
-			getFluentWait();
-			clickElement(report.getRefreshIcon());
+			report.getRefreshIcon();
 			driver.navigate().refresh();
-			getFluentWait();
+			Thread.sleep(3000);
 			System.out.println("\n\n***************PSC Inspection Report***************\n\n");
 			JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
 			jsExecutor.executeScript("arguments[0].click();", report.getPsc());

@@ -297,8 +297,10 @@ public class ExternalInspectionReports extends TestBase {
 		   			
 
 		}
+			
+		else {
+			System.out.println("Issue in Generated report");
 		}
-		
-		
+		}	
 		
 		}
