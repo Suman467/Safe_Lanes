@@ -53,7 +53,7 @@ public class LoginPageTest extends TestBase {
 	    Assert.assertTrue(login.getDashboard().isDisplayed());
 	    System.out.println("Dashoard tab is visible");
 	    getFluentWait();
-	   
+	    	   
 	}
 
 }

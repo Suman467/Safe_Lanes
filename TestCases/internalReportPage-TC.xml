@@ -17,7 +17,7 @@
 			<class name="com.sail.qa.TestCases.InternalInspectionReport">
 				<methods>
 				     <include name="GenerateSupdtInspectionReport"/> 
-				    <!-- <include name="GenerateNavigationAuditReport"/>-->
+				     <include name="GenerateNavigationAuditReport"/>
 				</methods>
 			</class>
 		</classes>
