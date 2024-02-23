@@ -1,4 +1,4 @@
-name: 01 Suites for Sign In
+name: 01 Sign In Suite
 
 on:
   workflow_dispatch:
