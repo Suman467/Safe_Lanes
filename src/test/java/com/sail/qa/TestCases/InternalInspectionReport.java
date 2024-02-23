@@ -55,7 +55,7 @@ public class InternalInspectionReport extends TestBase {
 			ReportPage report = new ReportPage(driver);
 			report.getRefreshIcon();
 			driver.navigate().refresh();
-			getFluentWait();
+			Thread.sleep(2000);
 			System.out.println("\n***************Supdt.Inspection Report***************\n");
 			JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
 			jsExecutor.executeScript("arguments[0].click();", report.getSupdtInspection());
