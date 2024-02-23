@@ -14,8 +14,6 @@ jobs:
     env:
       SUITE_1_PATH: testSuites/04-Internal_Reoprts.xml
      
-      # Add more suites as needed
-
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
@@ -37,6 +35,10 @@ jobs:
           ./mvnw test -Dsurefire.suiteXmlFiles=${SUITE_1_PATH} 
           # Add more suites using a comma-separated list
 
+      - name: Print Test Output
+        run: |
+          cat target/surefire-reports/*.txt
+          
       - name: Clear Maven Cache
         run: |
           mvn dependency:purge-local-repository
