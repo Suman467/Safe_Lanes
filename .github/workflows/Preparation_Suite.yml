@@ -1,4 +1,4 @@
-name: Run TestNG Suites for Preparation
+name: 02 Preparation Suite
 
 on:
   workflow_dispatch:
