@@ -20,15 +20,24 @@ public class InternalInspectionReport extends TestBase {
 	public CloseTab closeTAb= new CloseTab();
 	public InternalInspectionReports intrnlInsRep = new InternalInspectionReports();
 		
-	    @Parameters({"pageEndIndex","currentYear"})
+	    @Parameters({"pageEndIndex","currentYear","reportYear"})
 		@Test
-		public void GenerateNavigationAuditReport(int pageEndIndex, int currentYear) throws InterruptedException, AWTException {
+		public void GenerateNavigationAuditReport(int pageEndIndex, int currentYear, int reportYear) throws InterruptedException, AWTException {
 			
 			ReportPage report = new ReportPage(driver);
 			report.getRefreshIcon();
 			getFluentWait();
 			driver.navigate().refresh();
 			getFluentWait();
+			
+            clickElement(report.getClearBtn());		
+			
+			clickElement(report.getYearDrpDown());
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].click();", report.selectYear(reportYear));
+			
+			getFluentWait();
+			
 			System.out.println("\n***************Navigation Audit Inspection Report***************\n");
 			JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
 			jsExecutor.executeScript("arguments[0].click();", report.getNavAudit());
@@ -48,15 +57,24 @@ public class InternalInspectionReport extends TestBase {
 
 		}
 		
-	    @Parameters({"pageEndIndex","currentYear"})
+	    @Parameters({"pageEndIndex","currentYear","reportYear"})
 		@Test
-		public void GenerateSupdtInspectionReport(@Optional int pageEndIndex, int currentYear) throws InterruptedException, AWTException {
+		public void GenerateSupdtInspectionReport(@Optional int pageEndIndex, int currentYear, int reportYear) throws InterruptedException, AWTException {
 			
 			ReportPage report = new ReportPage(driver);
 			report.getRefreshIcon();
 			driver.navigate().refresh();
+			getFluentWait();
+			clickElement(report.getClearBtn());		
+			
+			clickElement(report.getYearDrpDown());
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].click();", report.selectYear(reportYear));
+			
+			
 			Thread.sleep(2000);
 			System.out.println("\n***************Supdt.Inspection Report***************\n");
+			
 			JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
 			jsExecutor.executeScript("arguments[0].click();", report.getSupdtInspection());
 

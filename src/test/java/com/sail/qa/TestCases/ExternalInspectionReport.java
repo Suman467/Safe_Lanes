@@ -17,13 +17,22 @@ public class ExternalInspectionReport extends TestBase {
 	CloseTab closeTAb= new CloseTab();
 	ExternalInspectionReports extReport= new ExternalInspectionReports();
 		
-	    @Parameters({"currentYear"})
+	    @Parameters({"currentYear","reportYear"})
 		@Test
-		public void GenerateSireReport(int currentYear ) throws InterruptedException, AWTException {
+		public void GenerateSireReport(int currentYear, int reportYear ) throws InterruptedException, AWTException {
 			ReportPage report = new ReportPage(driver);		
 			
-			
+			report.getRefreshIcon();
+			driver.navigate().refresh();
 			getFluentWait();
+			clickElement(report.getClearBtn());		
+			
+			clickElement(report.getYearDrpDown());
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].click();", report.selectYear(reportYear));
+			
+			
+			Thread.sleep(2000);
 			
 			System.out.println("\n***************SIRE Inspection Report***************\n");
 			JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
@@ -44,20 +53,30 @@ public class ExternalInspectionReport extends TestBase {
 			extReport.GeneratedExternalInspectionReport(currentYear);
 			closeTAb.closeTab();	
 			switchTab.switchToOldTab();
+			getFluentWait();
 
 		}
 		
 		
-	    @Parameters({"currentYear"})
+	    @Parameters({"currentYear","reportYear"})
 		@Test
-		public void GeneratePSCReport(int currentYear) throws InterruptedException, AWTException {
+		public void GeneratePSCReport(int currentYear, int reportYear) throws InterruptedException, AWTException {
 			
 			
 			ReportPage report = new ReportPage(driver);
 			
 			report.getRefreshIcon();
 			driver.navigate().refresh();
-			Thread.sleep(3000);
+			getFluentWait();
+			clickElement(report.getClearBtn());		
+			
+			clickElement(report.getYearDrpDown());
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].click();", report.selectYear(reportYear));
+			
+			
+			Thread.sleep(2000);
+			
 			System.out.println("\n\n***************PSC Inspection Report***************\n\n");
 			JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
 			jsExecutor.executeScript("arguments[0].click();", report.getPsc());
@@ -72,11 +91,12 @@ public class ExternalInspectionReport extends TestBase {
 			getFluentWait();
 			
 			switchTab.switchToNewTab();
-			
+			Thread.sleep(3000);
 			extReport.GeneratedExternalInspectionReport(currentYear);
 			
 			closeTAb.closeTab();	
 			switchTab.switchToOldTab();
+			getFluentWait();
 
 			
 

@@ -24,7 +24,7 @@ public class ExternalInspectionReports extends TestBase {
 			
 			GeneratedReport genRep = new GeneratedReport(driver);
 			
-			Thread.sleep(5000);
+			Thread.sleep(3000);
 			
 			if(getText(genRep.getReportText()).equals("SIRE INSPECTION - "+currentYear)) {
 			
@@ -302,5 +302,31 @@ public class ExternalInspectionReports extends TestBase {
 			System.out.println("Issue in Generated report");
 		}
 		}	
+		
+	
+           public void GeneratedObservationStatusReport(int currentYear) throws InterruptedException, AWTException {
+			
+			GeneratedReport genRep = new GeneratedReport(driver);
+			
+			Thread.sleep(3000);
+			
+			if(getText(genRep.getReportText()).equals("SIRE INSPECTION - "+currentYear)) {
+			
+			Assert.assertEquals(getText(genRep.getReportText()), "SIRE INSPECTION - "+currentYear);
+			System.out.println("Report Name : - " +getText(genRep.getReportText()));
+			log.info(getText(genRep.getReportText()) + " Report is generated");
+			getFluentWait();
+			
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", genRep.getInspPerformanceAllObss());
+			System.out.println("Inspections performance - All Observation with comment list is visible on report");
+			log.info("Inspections performance - All Observation with comment list is visible on report");
+			
+			getFluentWait();
+			}
+			
+           }
+			
+		
 		
 		}

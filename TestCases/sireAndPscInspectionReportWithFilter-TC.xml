@@ -8,12 +8,10 @@
 	</listeners>
 
 	<test name="Generate Report With Filters ">
-	<parameter name="currentYear" value="2024"/>
-	
-	 <parameter name="Year" value="2023" />  
+	<parameter name="currentYear" value="2024"/>	
 	 <parameter name="Location" value="Remote" /> 
-	 <parameter name="Location" value="In-port" />
-	 <parameter name="pageEndIndex" value="4"/>
+	 <parameter name="Location" value="In-port" />	
+	 <parameter name="reportYear" value ="2024"/>
 	
 
 
@@ -21,11 +19,11 @@
 			<class name="com.sail.qa.TestCases.InspectionReportWithFilters">
 				<methods>
 				     <include name="GenerateSireReportWithVesselFilter"/>
-				     <include name="GenerateSireReportWithOwnerFilter"/>  
+		            <include name="GenerateSireReportWithOwnerFilter"/>  
 					 <include name="GenerateSireReportWithVIQChapterFilter"/>  
 					 <include name="GenerateSireReportWithLocationFilter"/> 
 					 <include name="GeneratePscReportWithPscActionFilter"/>
-					 <include name= "GenerateSupdtInspectionReportWithLocationFilter"/>  
+				 	 					
 				</methods>
 			</class>
 		</classes>

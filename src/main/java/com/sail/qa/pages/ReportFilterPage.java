@@ -162,7 +162,7 @@ public class ReportFilterPage {
 	
 	  public WebElement selectFilters(int index) { 
 		  WebElement filters =
-	  ldriver.findElement(By.xpath("(//mat-option[@role='option'])[" +
+	  ldriver.findElement(By.xpath("(//span[@class='mat-option-text'])[" +
 	  index + "]")); 
 		  return filters; 
 		  
@@ -184,5 +184,19 @@ public class ReportFilterPage {
 		  return selectLocation; 
 		  
 		  }
+	  
+	  @FindBy(xpath="//div[@class='mat-form-field-infix ng-tns-c67-126']")
+	  WebElement obsStatusArrow;
+
+	public WebElement getObsStatusArrow() {
+		return obsStatusArrow;
+	}
+	
+	public WebElement obsStatus(String obsStatus) {
+	    WebElement obs_Status = ldriver.findElement(By.xpath("//span[@class='mat-option-text'][normalize-space()='" + obsStatus + "']"));
+	    return obs_Status;
+	}
+	  
+	 
 	  
 }

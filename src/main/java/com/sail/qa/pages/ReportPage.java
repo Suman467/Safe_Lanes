@@ -1,5 +1,6 @@
 package com.sail.qa.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -51,8 +52,47 @@ public class ReportPage {
 	
 	@FindBy(xpath="//span[contains(text(),'refresh')]")
 	WebElement refreshIcon;
+	
+	@FindBy(xpath="//span[normalize-space()='Clear']")
+	WebElement clearBtn;
+	
+	@FindBy(xpath="//span[@class='mat-select-placeholder ng-tns-c150-2 ng-star-inserted']")
+	WebElement yearDrpDown;
+	
+	
+	
+	public WebElement getYearDrpDown() {
+		return yearDrpDown;
+	}
 
-	public WebElement getRefreshIcon() {
+
+	public WebElement getSireEditIcon() {
+		return sireEditIcon;
+	}
+
+
+	public WebElement getCdiEditIcon() {
+		return cdiEditIcon;
+	}
+
+
+	public WebElement getPscEditIcon() {
+		return pscEditIcon;
+	}
+
+
+	public WebElement getClearBtn() {
+		return clearBtn;
+	}
+
+
+	public WebElement selectYear(int reportYear) {
+	    WebElement report_Year = ldriver.findElement(By.xpath("//span[normalize-space()='" + reportYear + "']"));
+	    return report_Year;
+	}
+	
+	
+		public WebElement getRefreshIcon() {
 		return refreshIcon;
 	}
 
@@ -113,6 +153,30 @@ public class ReportPage {
 	public WebElement getSupdtInspection() {
 		return supdtInspection;
 	}
+
+	@FindBy(xpath="(//mat-icon[contains(text(),'create')])[1]")
+	WebElement editSireIcon;
+	
+	@FindBy(xpath="//div[normalize-space()='All Observation']")
+	WebElement allObsCheckBox;
+	
+	@FindBy(xpath="//div[@class='row ng-star-inserted']//a[@class='generate-btn'][normalize-space()='Generate']")
+	WebElement generateBtton;
+
+	public WebElement getAllObsCheckBox() {
+		return allObsCheckBox;
+	}
+
+
+	public WebElement getGenerateBtton() {
+		return generateBtton;
+	}
+
+
+	public WebElement getEditSireIcon() {
+		return editSireIcon;
+	}
+
 
 	
 
