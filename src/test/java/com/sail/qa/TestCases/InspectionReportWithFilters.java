@@ -427,14 +427,11 @@ public class InspectionReportWithFilters extends TestBase {
 			
 			
 			getFluentWait();
-			jsExecutor.executeScript("arguments[0].click();", filter.getArrowIconInPort());
-		/*	for(int port =1;port <5;port++ ) {
-				getFluentWait();
-				//clickElement(filter.selectFilters(port));
-				jsExecutor.executeScript("arguments[0].click();",filter.selectFilters(port));				
-				}
-			 System.out.println("Ports have been selected");
-		*/
+			 Actions action = new Actions(driver);
+			 action.moveToElement(filter.getArrowIconInPort()).click().perform();
+			
+			//jsExecutor.executeScript("arguments[0].click();", filter.getArrowIconInPort());
+		
 			 getFluentWait();
 			for (int port = 1; port < 5; port++) {
 				// getFluentWait();
