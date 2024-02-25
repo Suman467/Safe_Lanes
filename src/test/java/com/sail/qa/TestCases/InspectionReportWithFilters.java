@@ -130,7 +130,7 @@ public class InspectionReportWithFilters extends TestBase {
 			getFluentWait();
 			
             clickElement(report.getClearBtn());		
-			
+			getFluentWait();
 			clickElement(report.getYearDrpDown());
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].click();", report.selectYear(reportYear));
@@ -271,7 +271,7 @@ public class InspectionReportWithFilters extends TestBase {
 			getFluentWait();
 			
             clickElement(report.getClearBtn());		
-			
+            getFluentWait();
 			clickElement(report.getYearDrpDown());
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].click();", report.selectYear(reportYear));
@@ -333,7 +333,7 @@ public class InspectionReportWithFilters extends TestBase {
 			getFluentWait();
 			
             clickElement(report.getClearBtn());		
-			
+            getFluentWait();
 			clickElement(report.getYearDrpDown());
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].click();", report.selectYear(reportYear));
@@ -401,7 +401,7 @@ public class InspectionReportWithFilters extends TestBase {
 			driver.navigate().refresh();
 			getFluentWait();
 			clickElement(report.getClearBtn());		
-			
+			getFluentWait();
 			clickElement(report.getYearDrpDown());
 			getFluentWait();
 			js = (JavascriptExecutor) driver;
