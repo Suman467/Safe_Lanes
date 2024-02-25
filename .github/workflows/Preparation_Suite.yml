@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:      
-      SUITE_1_PATH: testSuites/09-Create_Preparation.xml
+      SUITE_1_PATH: testSuites/10-Create_Preparation.xml
       # Add more suites as needed
 
     steps:
