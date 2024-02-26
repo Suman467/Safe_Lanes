@@ -1,4 +1,4 @@
-name: 07 SIRE Report with LOcation Filter
+name: 07 SIRE Report with Location Filter
 
 on:
   workflow_dispatch:
