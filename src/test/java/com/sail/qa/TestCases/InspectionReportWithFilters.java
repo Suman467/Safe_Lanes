@@ -89,7 +89,7 @@ public class InspectionReportWithFilters extends TestBase {
 			System.out.println("Vessel filter drop down is closed");
 			log.info("Vessel filter drop down is closed");
 						
-			Thread.sleep(2000);
+			getFluentWait();
 			
 			clickElement(report.getGenerateBtn());
 			log.info("Generate button has been clicked on the report page");
@@ -105,8 +105,7 @@ public class InspectionReportWithFilters extends TestBase {
 			
 			closeTAb.closeTab();	
 			switchTab.switchToOldTab();	
-			getFluentWait();
-
+			Thread.sleep(2000);
 		}
 		
 		
@@ -149,9 +148,9 @@ public class InspectionReportWithFilters extends TestBase {
 		
 			for(int owner_index =20;owner_index <24;owner_index++ ) {
 			getFluentWait();
-			 Actions actions = new Actions(driver);
-			//jsExecutor.executeScript("arguments[0].click();", filter.selectFilters(owner_index));
-			 actions.sendKeys(Keys.ESCAPE).build().perform();
+			
+			jsExecutor.executeScript("arguments[0].click();", filter.selectFilters(owner_index));
+			
 			//clickElement(filter.selectFilters(owner_index));			
 			}
 			System.out.println("Owner has been selected");
@@ -173,13 +172,13 @@ public class InspectionReportWithFilters extends TestBase {
 			getFluentWait();
 
 			switchTab.switchToNewTab();
-			
+			getFluentWait();
 			System.out.println(getText(genRep.getFilterApplied()));
 			log.info(getText(genRep.getFilterApplied()));
 			externalInsp.GeneratedExternalInspectionReport(currentYear);			
 			closeTAb.closeTab();	
 			switchTab.switchToOldTab();	
-			getFluentWait();
+			Thread.sleep(2000);
 
 		}
 		
@@ -250,7 +249,7 @@ public class InspectionReportWithFilters extends TestBase {
 			
 			closeTAb.closeTab();	
 			switchTab.switchToOldTab();		
-			getFluentWait();
+			Thread.sleep(2000);
 
 		}
 		
@@ -311,7 +310,7 @@ public class InspectionReportWithFilters extends TestBase {
 			
 			closeTAb.closeTab();	
 			switchTab.switchToOldTab();
-			getFluentWait();
+			Thread.sleep(2000);
 
 		}
 		
@@ -382,7 +381,7 @@ public class InspectionReportWithFilters extends TestBase {
 			
 			closeTAb.closeTab();	
 			switchTab.switchToOldTab();		
-			getFluentWait();
+			Thread.sleep(2000);
 
 		}
 		
@@ -475,7 +474,7 @@ public class InspectionReportWithFilters extends TestBase {
 			
 			closeTAb.closeTab();	
 			switchTab.switchToOldTab();	
-			getFluentWait();
+			Thread.sleep(2000);
 
 		}
 		
@@ -538,7 +537,7 @@ public class InspectionReportWithFilters extends TestBase {
 			
 			closeTAb.closeTab();	
 			switchTab.switchToOldTab();	
-			getFluentWait();
+			Thread.sleep(2000);
 
 		}
 		
