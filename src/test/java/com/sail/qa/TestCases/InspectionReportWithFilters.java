@@ -58,13 +58,8 @@ public class InspectionReportWithFilters extends TestBase {
 			js.executeScript("arguments[0].click();", filter.getArrowIconInVessel());
 			log.info("Vessels filter button has been clicked");
 			System.out.println("Vessels filter button has been clicked");
-			/*
-			for(int vessel_index =7;vessel_index<10;vessel_index++ ) {
-			getFluentWait();
-			//clickElement(filter.selectFilters(vessel_index));
-			jsExecutor.executeScript("arguments[0].click();", filter.selectFilters(vessel_index));			
-			}
-			*/
+			
+			
 			
 			for (int vessel_index = 7; vessel_index < 10; vessel_index++) {
 			    getFluentWait();
@@ -150,6 +145,9 @@ public class InspectionReportWithFilters extends TestBase {
 			log.info("Owner filter button has been clicked");
 			System.out.println("Owner filter button has been clicked");
 			Thread.sleep(2000);
+			
+			
+			/*
 			for(int owner_index =20;owner_index <24;owner_index++ ) {
 			getFluentWait();
 			jsExecutor.executeScript("arguments[0].click();", filter.selectFilters(owner_index));
@@ -157,7 +155,27 @@ public class InspectionReportWithFilters extends TestBase {
 			}
 			System.out.println("Owner has been selected");
 			log.info("Owner has been selected");
+			*/
 			
+			for (int owner_index =20;owner_index <24;owner_index++) {
+			    getFluentWait();
+
+			    int maxAttempts = 3;
+			    int attempt = 0;
+
+			    while (attempt < maxAttempts) {
+			        try {
+			            jsExecutor.executeScript("arguments[0].click();", filter.selectFilters(owner_index));
+			           			            break; // Break out of the loop if interaction is successful
+			        } catch (StaleElementReferenceException e) {
+			            // Retry the operation
+			            attempt++;
+			        }
+			    }
+			}
+			
+			System.out.println("Owner has been selected");
+			log.info("Owner has been selected");
 						
 			Actions actions = new Actions(driver);
 	        // Press the Escape key
