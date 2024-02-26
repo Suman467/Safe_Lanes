@@ -144,39 +144,21 @@ public class InspectionReportWithFilters extends TestBase {
 			//clickElement(filter.getArrowIconInOwner());
 			log.info("Owner filter button has been clicked");
 			System.out.println("Owner filter button has been clicked");
-			Thread.sleep(2000);
+			getFluentWait();	
 			
-			
-			/*
+		
 			for(int owner_index =20;owner_index <24;owner_index++ ) {
 			getFluentWait();
-			jsExecutor.executeScript("arguments[0].click();", filter.selectFilters(owner_index));
+			 Actions actions = new Actions(driver);
+			//jsExecutor.executeScript("arguments[0].click();", filter.selectFilters(owner_index));
+			 actions.sendKeys(Keys.ESCAPE).build().perform();
 			//clickElement(filter.selectFilters(owner_index));			
 			}
 			System.out.println("Owner has been selected");
 			log.info("Owner has been selected");
-			*/
 			
-			for (int owner_index =20;owner_index <24;owner_index++) {
-			    getFluentWait();
-
-			    int maxAttempts = 3;
-			    int attempt = 0;
-
-			    while (attempt < maxAttempts) {
-			        try {
-			            jsExecutor.executeScript("arguments[0].click();", filter.selectFilters(owner_index));
-			           			            break; // Break out of the loop if interaction is successful
-			        } catch (StaleElementReferenceException e) {
-			            // Retry the operation
-			            attempt++;
-			        }
-			    }
-			}
 			
-			System.out.println("Owner has been selected");
-			log.info("Owner has been selected");
-						
+			
 			Actions actions = new Actions(driver);
 	        // Press the Escape key
 	        actions.sendKeys(Keys.ESCAPE).build().perform();	
