@@ -1,4 +1,4 @@
-name: 05 SIRE and PSC Report with Filters
+name: 05 SIRE Report with Vessel Filter
 
 on:
   workflow_dispatch:
@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:      
-      SUITE_1_PATH: testSuites/06-Sire_Psc_Report_With_Filters.xml
+      SUITE_1_PATH: testSuites/06-Sire_Report_With_Vessel_Filter.xml
       # Add more suites as needed
 
     steps:
