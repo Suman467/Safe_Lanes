@@ -18,11 +18,8 @@
 		<classes>			
 			<class name="com.sail.qa.TestCases.InspectionReportWithFilters">
 				<methods>
-				     <include name="GenerateSireReportWithVesselFilter"/>
-		            <include name="GenerateSireReportWithOwnerFilter"/>  
-					 <include name="GenerateSireReportWithVIQChapterFilter"/>  
+				     
 					 <include name="GenerateSireReportWithLocationFilter"/> 
-					 <include name="GeneratePscReportWithPscActionFilter"/>
 				 	 					
 				</methods>
 			</class>
