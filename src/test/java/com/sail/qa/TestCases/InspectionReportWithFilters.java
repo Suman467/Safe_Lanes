@@ -149,7 +149,7 @@ public class InspectionReportWithFilters extends TestBase {
 			//clickElement(filter.getArrowIconInOwner());
 			log.info("Owner filter button has been clicked");
 			System.out.println("Owner filter button has been clicked");
-			
+			Thread.sleep(2000);
 			for(int owner_index =20;owner_index <24;owner_index++ ) {
 			getFluentWait();
 			jsExecutor.executeScript("arguments[0].click();", filter.selectFilters(owner_index));
@@ -377,6 +377,7 @@ public class InspectionReportWithFilters extends TestBase {
 			switchTab.switchToNewTab();
 			
 			System.out.println(getText(genRep.getFilterApplied()));
+			getFluentWait();
 			externalInsp.GeneratedExternalInspectionReport(currentYear);
 			
 			closeTAb.closeTab();	
